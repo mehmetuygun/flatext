@@ -50,7 +50,8 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/admin/account/edit') }}"><i class="fa fa-cog" aria-hidden="true"></i> Edit Account</a></li>
+                                <li><a href="{{ url('/admin/account/edit') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Account</a></li>
+                                <li><a href="{{ url('/admin/account/password') }}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="{{ url('/admin/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Log out</a></li>
                             </ul>

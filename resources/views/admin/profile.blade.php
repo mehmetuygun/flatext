@@ -7,6 +7,10 @@
 			<h3 class="panel-title">Edit Account</h3>
 		</div>
 		<div class="panel-body">
+			@if (Session::has('alert_success'))
+				<div class="alert alert-success" role="alert">{{ Session::get('alert_success') }}</div>
+				{{ Session::forget('alert_success') }}
+			@endif
 			<form class="form-horizontal" method="POST" action="">
 				{{ csrf_field() }}
 				<div class="form-group @if ($errors->has('first_name')) has-error @endif" >
@@ -39,7 +43,7 @@
 
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">Save Changes</button>
+						<button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Changes</button>
 					</div>
 				</div>
 			</form>

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\AccountPasswordRequest;
 use App\Http\Requests\UpdateAccountRequest;
 use App\User;
-use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Http\Request;
+use Hash;
 
 class AccountController extends Controller
 {
@@ -25,10 +27,30 @@ class AccountController extends Controller
     	$last_name = ucfirst(strtolower($request->last_name));
     	$request->replace(['first_name' => $first_name, 'last_name' => $last_name]);
 
-    	$user->update($request->all());		
+    	if ($user->update($request->all())) {
+    		$request->session()->flash('alert_success', 'Your account has been successfuly updated.');
+    	}		
+
 		Auth::setUser(User::find($user_id));
 
-    	$request->flash();
+    	// $request->flash();
     	return view('admin/profile');
+    }
+
+    public function getAccountPassword()
+    {
+    	return view('admin/password');
+    }
+
+    public function postAccountPassword(AccountPasswordRequest $request)
+    {
+    	$user = User::find(Auth::user()->id);
+    	$user->password = Hash::make($request->password);
+
+    	if ($user->save()) {
+    		$request->session()->flash('alert_success', 'Your account has been successfuly updated.');
+    	}
+    	$request->flash();
+    	return view('admin/password');
     }
 }

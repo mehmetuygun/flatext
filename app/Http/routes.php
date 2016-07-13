@@ -19,9 +19,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::get('/admin/home', function () {
 	    return view('admin.home');
 	});
-
+	Route::get('/admin/logout', 'Auth\AuthController@getLogout');
 	Route::get('/admin/account/edit', 'Admin\AccountController@getEditAccount');
 	Route::post('/admin/account/edit', 'Admin\AccountController@postEditAccount');
+	Route::get('/admin/account/password', 'Admin\AccountController@getAccountPassword');
+	Route::post('/admin/account/password', 'Admin\AccountController@postAccountPassword');
 });
 
 Route::get('/helloworld', function () {
