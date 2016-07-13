@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Flatext</title>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/admin.css') }}">
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-inverse navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -25,15 +25,15 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('/admin/home') }}">
+                    Flatext
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    {{-- <li><a href="{{ url('/home') }}">Home</a></li> --}}
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -45,11 +45,14 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-user" aria-hidden="true"></i>
                                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/admin/account/edit') }}"><i class="fa fa-cog" aria-hidden="true"></i> Edit Account</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ url('/admin/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Log out</a></li>
                             </ul>
                         </li>
                     @endif
@@ -61,7 +64,7 @@
     @yield('content')
 
     <!-- JavaScripts -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.1.11.3.min.js"></script>
+    <script type="text/javascript" src="{{ url('/js/jquery.1.11.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

@@ -33,6 +33,11 @@
              <h3 class="panel-title">Login</h3>
         </div>
         <div class="panel-body">
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
             <form method="POST" action="{{ url('/admin/login') }}">
                 {{ csrf_field() }}
                 <div class="form-group">

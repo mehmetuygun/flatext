@@ -20,5 +20,6 @@ class AuthController extends Controller
     	if (Auth::attempt($conditions)) {
     		return redirect('admin/home');
     	}
+    	return redirect('admin/login')->with('error', trans('auth.failed'))->withInput();
     }
 }
