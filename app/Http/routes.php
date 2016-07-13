@@ -17,16 +17,20 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::get('/admin/home', function () {
-	    return view('welcome');
+	    return view('admin.home');
 	});
+
+	Route::get('/admin/account/edit', 'Admin\AccountController@getEditAccount');
+	Route::post('/admin/account/edit', 'Admin\AccountController@postEditAccount');
 });
 
 Route::get('/helloworld', function () {
     return 'helloworld!';
 });
-Route::auth();
 
-Route::get('/home', 'HomeController@index');
+// Route::auth();
+
+// Route::get('/home', 'HomeController@index');
 
 Route::get('/admin', function () {
 	return view('admin/home');
