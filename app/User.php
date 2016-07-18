@@ -23,4 +23,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the hotel that user owns,
+     */
+    public function hotel()
+    {
+        return $this->hasOne('App\User');
+    }
+
 }
