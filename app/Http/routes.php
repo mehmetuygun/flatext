@@ -24,7 +24,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::post('/admin/account/edit', 'Admin\AccountController@postEditAccount');
 	Route::get('/admin/account/password', 'Admin\AccountController@getAccountPassword');
 	Route::post('/admin/account/password', 'Admin\AccountController@postAccountPassword');
-	Route::post('/admin/hotel/detail', 'Admin\AccountController@postAccountPassword');
+	Route::get('/admin/hotel/detail', 'Admin\HotelManagerController@getHotelDetail');
+	Route::post('/admin/hotel/detail', 'Admin\HotelManagerController@postHotelDetail');
 });
 
 Route::get('/helloworld', function () {

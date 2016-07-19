@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UpdateAccountRequest extends Request
+class UpdateHotelDetailRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,14 @@ class UpdateAccountRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|alpha|min:3|max:35',
-            'last_name' => 'required|alpha|min:3|max:35',
-            'email' => 'required|email',
+            'name' => 'required|min:3|max:255',
         ];
     }
 
     public function attributes()
     {
         return [
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'email' => 'Email',
+            'name' => 'Hotel Name',
         ];
     }
 }

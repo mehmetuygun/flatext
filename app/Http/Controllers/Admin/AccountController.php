@@ -8,7 +8,6 @@ use App\Http\Requests\AccountPasswordRequest;
 use App\Http\Requests\UpdateAccountRequest;
 use App\User;
 use Auth;
-use Illuminate\Http\Request;
 use Hash;
 
 class AccountController extends Controller

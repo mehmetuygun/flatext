@@ -33,7 +33,21 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/admin/manage/hotel') }}">Manage Hotel</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <i class="fa fa-hotel" aria-hidden="true"></i>
+                            Manage Hotel <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/admin/hotel/detail') }}"><i class="fa fa-bed" aria-hidden="true"></i> Hotel Detail</a></li>
+{{--                             <li><a href="{{ url('/admin/account/password') }}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ url('/admin/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Log out</a></li>
+ --}}                        </ul>
+                    </li>
+
                     <li><a href="{{ url('/admin/manage/hotel') }}">Manage Hotel</a></li>
                     <li><a href="{{ url('/admin/manage/hotel') }}">Manage Hotel</a></li>
                     <li><a href="{{ url('/admin/manage/hotel') }}">Manage Hotel</a></li>

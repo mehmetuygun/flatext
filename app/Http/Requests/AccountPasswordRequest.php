@@ -29,4 +29,12 @@ class AccountPasswordRequest extends Request
             'current_password' => 'required|old_password:'. Auth::user()->password,
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'password' => 'Password',
+            'current_password' => 'Current Password',
+        ];
+    }
 }
